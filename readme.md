@@ -15,4 +15,5 @@ Building blocks:
 2. capacitive-to-I2C board (MPR121 Breakout V12 Proximity Capacitive Touch Sensor Module)
 3. Microcontroller (arduino?)
 4. interface to output MIDI 
-5. additional interfaces for midi channel selection and all-note-off button
+5. additional interfaces for midi channel selection and all-note-off button and on-off switch (with LED)
+6. Power supply via common connector (barrel or usb)
