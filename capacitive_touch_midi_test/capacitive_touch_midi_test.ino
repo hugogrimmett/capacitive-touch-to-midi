@@ -23,7 +23,7 @@ int NOTE_OFF = 0x80;
 int VELOCITY = 64; // 0-127, average is 64
 
 void setup() {
-  Serial.begin(9600); // 9600 for serial monitor, 31250 for MIDI
+  Serial.begin(31250); // 9600 for serial monitor, 31250 for MIDI
 
   while (!Serial) { // needed to keep leonardo/micro from starting too fast!
     delay(10);
@@ -48,13 +48,13 @@ void loop() {
   for (uint8_t i=0; i<12; i++) {
     // it if *is* touched and *wasnt* touched before, alert!
     if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) ) {
-      // noteSend(NOTE_ON, touchIndexToNote(i), VELOCITY);
-      Serial.print("Note "); Serial.print(touchIndexToNote(i)); Serial.print(" ON"); Serial.print(" (");Serial.print(NOTE_ON);Serial.print(")\n");
+      noteSend(NOTE_ON, touchIndexToNote(i), VELOCITY);
+      // Serial.print("Note "); Serial.print(touchIndexToNote(i)); Serial.print(" ON"); Serial.print(" (");Serial.print(NOTE_ON);Serial.print(")\n");
     }
     // if it *was* touched and now *isnt*, alert!
     if (!(currtouched & _BV(i)) && (lasttouched & _BV(i)) ) {
-      // noteSend(NOTE_OFF, touchIndexToNote(i), VELOCITY);
-      Serial.print("Note "); Serial.print(touchIndexToNote(i)); Serial.print(" OFF"); Serial.print(" (");Serial.print(NOTE_OFF);Serial.print(")\n");
+      noteSend(NOTE_OFF, touchIndexToNote(i), VELOCITY);
+      // Serial.print("Note "); Serial.print(touchIndexToNote(i)); Serial.print(" OFF"); Serial.print(" (");Serial.print(NOTE_OFF);Serial.print(")\n");
     }
   }
 
