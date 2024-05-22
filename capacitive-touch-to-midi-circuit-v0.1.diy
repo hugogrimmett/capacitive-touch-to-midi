@@ -17,11 +17,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.4" y="2.7"/>
-        <point x="9.8" y="5.6"/>
+        <point x="5.8" y="2.6"/>
+        <point x="9.7" y="5.5"/>
       </controlPoints>
-      <firstPoint x="5.4" y="2.7"/>
-      <secondPoint x="9.8" y="5.6"/>
+      <firstPoint x="5.8" y="2.6"/>
+      <secondPoint x="9.7" y="5.5"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -29,8 +29,8 @@
       <coordinateOrigin>Top_Left</coordinateOrigin>
       <coordinateDisplay>One_Side</coordinateDisplay>
       <yType>Letters</yType>
-      <length value="114.3" unit="mm"/>
-      <width value="76.2" unit="mm"/>
+      <length value="111.76" unit="mm"/>
+      <width value="73.66" unit="mm"/>
       <mode>TwoPoints</mode>
       <spacing value="0.1" unit="in"/>
       <stripColor hex="da8a67"/>
@@ -913,15 +913,15 @@
       <cutBetweenHoles>false</cutBetweenHoles>
       <orientation>VERTICAL</orientation>
       <holeSpacing value="0.1" unit="in"/>
-      <point x="7.5" y="4.1"/>
+      <point x="7.5" y="4.0"/>
     </diylc.connectivity.TraceCut>
     <diylc.connectivity.Jumper>
       <name>J16</name>
       <alpha>127</alpha>
       <points>
         <point x="7.4" y="3.6"/>
-        <point x="7.4" y="4.0"/>
-        <point x="7.4" y="3.8"/>
+        <point x="7.4" y="4.1"/>
+        <point x="7.4" y="3.85"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -943,7 +943,7 @@
       <cutBetweenHoles>false</cutBetweenHoles>
       <orientation>VERTICAL</orientation>
       <holeSpacing value="0.1" unit="in"/>
-      <point x="7.3" y="4.0"/>
+      <point x="7.3" y="4.1"/>
     </diylc.connectivity.TraceCut>
     <diylc.connectivity.Jumper>
       <name>J17</name>
@@ -968,9 +968,9 @@
       <name>J18</name>
       <alpha>127</alpha>
       <points>
-        <point x="7.7" y="4.0"/>
+        <point x="7.7" y="4.1"/>
         <point x="7.7" y="4.9"/>
-        <point x="7.7" y="4.45"/>
+        <point x="7.7" y="4.5"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -995,31 +995,12 @@
       <point x="7.4" y="4.9"/>
     </diylc.connectivity.TraceCut>
     <diylc.connectivity.Jumper>
-      <name>J19</name>
-      <alpha>127</alpha>
-      <points>
-        <point x="5.9" y="4.3"/>
-        <point x="5.9" y="5.1"/>
-        <point x="5.9" y="4.7"/>
-      </points>
-      <bodyColor hex="ffffff"/>
-      <borderColor hex="000000"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="000000"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <style>SOLID</style>
-    </diylc.connectivity.Jumper>
-    <diylc.connectivity.Jumper>
       <name>J20</name>
       <alpha>127</alpha>
       <points>
-        <point x="6.1" y="5.1"/>
-        <point x="6.1" y="5.3"/>
-        <point x="6.1" y="5.2"/>
+        <point x="7.8" y="4.9"/>
+        <point x="7.8" y="5.3"/>
+        <point x="7.8" y="5.1"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1041,20 +1022,31 @@
       <cutBetweenHoles>false</cutBetweenHoles>
       <orientation>VERTICAL</orientation>
       <holeSpacing value="0.1" unit="in"/>
-      <point x="7.8" y="5.4"/>
+      <point x="7.4" y="5.4"/>
+    </diylc.connectivity.TraceCut>
+    <diylc.connectivity.TraceCut>
+      <name>Cut59</name>
+      <size value="0.08" unit="in"/>
+      <fillColor hex="ffffff"/>
+      <borderColor hex="ff0000"/>
+      <boardColor hex="f8ebb3"/>
+      <cutBetweenHoles>false</cutBetweenHoles>
+      <orientation>VERTICAL</orientation>
+      <holeSpacing value="0.1" unit="in"/>
+      <point x="7.8" y="2.9"/>
     </diylc.connectivity.TraceCut>
     <diylc.connectivity.Jumper>
-      <name>J21</name>
+      <name>J22</name>
       <alpha>127</alpha>
       <points>
-        <point x="6.0" y="3.1"/>
-        <point x="6.0" y="4.3"/>
-        <point x="6.0" y="3.7"/>
+        <point x="8.1" y="5.0"/>
+        <point x="8.1" y="5.4"/>
+        <point x="8.1" y="5.2"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
       <labelColor hex="000000"/>
-      <leadColor hex="000000"/>
+      <leadColor hex="ff3333"/>
       <display>NAME</display>
       <flipStanding>false</flipStanding>
       <labelOriantation>Directional</labelOriantation>
@@ -1071,18 +1063,7 @@
       <cutBetweenHoles>false</cutBetweenHoles>
       <orientation>VERTICAL</orientation>
       <holeSpacing value="0.1" unit="in"/>
-      <point x="5.7" y="3.0"/>
-    </diylc.connectivity.TraceCut>
-    <diylc.connectivity.TraceCut>
-      <name>Cut59</name>
-      <size value="0.08" unit="in"/>
-      <fillColor hex="ffffff"/>
-      <borderColor hex="ff0000"/>
-      <boardColor hex="f8ebb3"/>
-      <cutBetweenHoles>false</cutBetweenHoles>
-      <orientation>VERTICAL</orientation>
-      <holeSpacing value="0.1" unit="in"/>
-      <point x="5.7" y="3.2"/>
+      <point x="7.500000000000001" y="5.2"/>
     </diylc.connectivity.TraceCut>
     <diylc.connectivity.PCBTerminalBlock>
       <name>TB1</name>
@@ -1244,9 +1225,9 @@
       <alpha>127</alpha>
       <orientation>DEFAULT</orientation>
       <controlPoints>
-        <point x="5.5" y="5.3"/>
-        <point x="5.5" y="5.4"/>
-        <point x="5.5" y="5.5"/>
+        <point x="7.1" y="5.2"/>
+        <point x="7.1" y="5.3"/>
+        <point x="7.1" y="5.4"/>
       </controlPoints>
       <rowCount>1</rowCount>
       <columnCount>3</columnCount>
@@ -1260,9 +1241,9 @@
       <alpha>127</alpha>
       <orientation>DEFAULT</orientation>
       <controlPoints>
-        <point x="5.5" y="3.0"/>
-        <point x="5.5" y="3.1"/>
-        <point x="5.5" y="3.2"/>
+        <point x="8.1" y="2.8"/>
+        <point x="8.1" y="2.9"/>
+        <point x="8.1" y="3.0"/>
       </controlPoints>
       <rowCount>1</rowCount>
       <columnCount>3</columnCount>
@@ -1290,11 +1271,11 @@
       <name>L7805CV</name>
       <alpha>100</alpha>
       <value></value>
-      <orientation>_180</orientation>
+      <orientation>DEFAULT</orientation>
       <controlPoints>
-        <point x="5.8" y="5.2"/>
-        <point x="5.8" y="5.1"/>
-        <point x="5.8" y="5.0"/>
+        <point x="7.9" y="5.2"/>
+        <point x="7.9" y="5.3"/>
+        <point x="7.9" y="5.4"/>
       </controlPoints>
       <bodyColor hex="808080"/>
       <borderColor hex="595959"/>
@@ -1349,9 +1330,9 @@
       <length value="0.25" unit="in"/>
       <width value="0.125" unit="in"/>
       <points>
-        <point x="5.6" y="5.0"/>
-        <point x="5.6" y="5.1"/>
-        <point x="5.6" y="5.05"/>
+        <point x="8.4" y="5.3"/>
+        <point x="8.4" y="5.4"/>
+        <point x="8.4" y="5.35"/>
       </points>
       <bodyColor hex="f0e68c"/>
       <borderColor hex="a8a162"/>
@@ -1372,9 +1353,9 @@
       <length value="0.25" unit="in"/>
       <width value="0.125" unit="in"/>
       <points>
-        <point x="5.5" y="5.1"/>
-        <point x="5.5" y="5.2"/>
-        <point x="5.5" y="5.15"/>
+        <point x="8.2" y="5.2"/>
+        <point x="8.2" y="5.3"/>
+        <point x="8.2" y="5.25"/>
       </points>
       <bodyColor hex="f0e68c"/>
       <borderColor hex="a8a162"/>
@@ -1394,9 +1375,9 @@
       <length value="0.25" unit="in"/>
       <width value="0.125" unit="in"/>
       <points>
-        <point x="6.0" y="5.5"/>
-        <point x="6.0" y="5.2"/>
-        <point x="6.0" y="5.35"/>
+        <point x="7.4" y="5.2"/>
+        <point x="7.6" y="5.2"/>
+        <point x="7.5" y="5.2"/>
       </points>
       <bodyColor hex="404040"/>
       <borderColor hex="2c2c2c"/>
@@ -1415,8 +1396,8 @@
       <alpha>127</alpha>
       <orientation>DEFAULT</orientation>
       <controlPoints>
-        <point x="7.5" y="5.3"/>
-        <point x="7.5" y="5.4"/>
+        <point x="6.0" y="5.3"/>
+        <point x="6.0" y="5.4"/>
       </controlPoints>
       <rowCount>1</rowCount>
       <columnCount>2</columnCount>
@@ -1431,9 +1412,9 @@
       <length value="0.5" unit="in"/>
       <width value="0.125" unit="in"/>
       <points>
-        <point x="5.8" y="3.0"/>
-        <point x="5.6" y="3.0"/>
-        <point x="5.7" y="3.0"/>
+        <point x="7.9" y="2.9"/>
+        <point x="7.7" y="2.9"/>
+        <point x="7.8" y="2.9"/>
       </points>
       <bodyColor hex="82cffd"/>
       <borderColor hex="5b90b1"/>
@@ -1454,9 +1435,9 @@
       <length value="0.5" unit="in"/>
       <width value="0.125" unit="in"/>
       <points>
-        <point x="5.8" y="3.2"/>
-        <point x="5.6" y="3.2"/>
-        <point x="5.7" y="3.2"/>
+        <point x="7.4" y="2.8"/>
+        <point x="7.4" y="3.3"/>
+        <point x="7.4" y="3.05"/>
       </points>
       <bodyColor hex="82cffd"/>
       <borderColor hex="5b90b1"/>
@@ -1513,7 +1494,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB5</name>
-      <point x="8.1" y="4.0"/>
+      <point x="8.1" y="4.1"/>
       <text>GND</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1523,7 +1504,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB6</name>
-      <point x="8.1" y="4.1"/>
+      <point x="8.1" y="4.0"/>
       <text>ADD</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1653,7 +1634,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB19</name>
-      <point x="5.5" y="5.3"/>
+      <point x="7.1" y="5.3"/>
       <text>Switch GND</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1663,7 +1644,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB20</name>
-      <point x="5.5" y="5.4"/>
+      <point x="7.1" y="5.4"/>
       <text>Switch Vin</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1673,7 +1654,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB21</name>
-      <point x="5.5" y="5.5"/>
+      <point x="7.1" y="5.2"/>
       <text>Switch Vout</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1683,7 +1664,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB22</name>
-      <point x="7.5" y="5.4"/>
+      <point x="6.0" y="5.4"/>
       <text>Barrel Vin</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1693,7 +1674,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB23</name>
-      <point x="7.5" y="5.3"/>
+      <point x="6.0" y="5.3"/>
       <text>Barrel GND</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1703,7 +1684,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB24</name>
-      <point x="5.5" y="3.1"/>
+      <point x="8.1" y="3.0"/>
       <text>MIDI 2 GND</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1713,7 +1694,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB25</name>
-      <point x="5.5" y="3.0"/>
+      <point x="8.1" y="2.9"/>
       <text>MIDI 4 3.3V</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1723,7 +1704,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB26</name>
-      <point x="5.5" y="3.2"/>
+      <point x="8.1" y="2.8"/>
       <text>MIDI 5 TX </text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
@@ -1733,8 +1714,8 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB27</name>
-      <point x="6.2" y="3.2"/>
-      <text>3 GPIOP36</text>
+      <point x="7.0" y="3.3"/>
+      <text>35 TX0</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
       <horizontalAlignment>CENTER</horizontalAlignment>
@@ -1763,7 +1744,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB30</name>
-      <point x="9.0" y="5.4"/>
+      <point x="9.1" y="5.3"/>
       <text>Hugo Grimmett 14-05-2024</text>
       <font name="Dialog" size="14" style="0"/>
       <color hex="000000"/>
