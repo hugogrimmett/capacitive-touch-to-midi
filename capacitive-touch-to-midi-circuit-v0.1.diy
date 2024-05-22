@@ -1304,7 +1304,7 @@
     <diylc.passive.Resistor>
       <name>10K</name>
       <alpha>127</alpha>
-      <length value="0.5" unit="in"/>
+      <length value="7.0" unit="mm"/>
       <width value="0.125" unit="in"/>
       <points>
         <point x="7.3" y="4.8"/>
@@ -1409,7 +1409,7 @@
     <diylc.passive.Resistor>
       <name>33R</name>
       <alpha>127</alpha>
-      <length value="0.5" unit="in"/>
+      <length value="7.0" unit="mm"/>
       <width value="0.125" unit="in"/>
       <points>
         <point x="7.9" y="2.9"/>
@@ -1432,7 +1432,7 @@
     <diylc.passive.Resistor>
       <name>10R</name>
       <alpha>127</alpha>
-      <length value="0.5" unit="in"/>
+      <length value="7.0" unit="mm"/>
       <width value="0.125" unit="in"/>
       <points>
         <point x="7.4" y="2.8"/>
