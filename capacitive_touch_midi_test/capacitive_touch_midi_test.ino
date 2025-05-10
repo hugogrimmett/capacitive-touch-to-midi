@@ -72,18 +72,39 @@ int touchIndexToNote(int touch_index) {
       note = 60;
       break;
     case 1:
-      note = 62;
+      note = 61;
       break;
     case 2:
-      note = 64;
+      note = 62;
       break;
     case 3:
-      note = 67;
+      note = 63;
       break;
     case 4:
-      note = 69;
+      note = 64;
       break;
     case 5:
+      note = 65;
+      break;
+    case 6:
+      note = 66;
+      break;
+    case 7:
+      note = 67;
+      break;
+    case 8:
+      note = 68;
+      break;
+    case 9:
+      note = 69;
+      break;
+    case 10:
+      note = 70;
+      break;
+    case 11:
+      note = 71;
+      break;
+    case 12:
       note = 72;
       break;
     default:
