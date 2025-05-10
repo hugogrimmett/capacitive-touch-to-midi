@@ -17,6 +17,9 @@ Adafruit_MPR121 cap = Adafruit_MPR121();
 uint16_t lasttouched = 0;
 uint16_t currtouched = 0;
 
+// Track the actual note played for each MPR121 pad
+int activeNotes[12];  // Ensures correct note-off regardless of octave change
+
 // ESP32 native touch config
 #define ESP32_NOTE_PIN T2  // GPIO2
 #define OCTAVE_UP_PIN T0     // GPIO4
@@ -39,7 +42,6 @@ void setup() {
     Serial.begin(31250); // 31250 for MIDI
   }
   
-
   while (!Serial) { // needed to keep leonardo/micro from starting too fast!
     delay(10);
   }
@@ -56,6 +58,11 @@ void setup() {
   if (debug) {
     Serial.println("MPR121 found!");
   }
+
+  // Initialize active note tracking
+  for (int i = 0; i < 12; i++) {
+    activeNotes[i] = -1;
+  }
 }
 
 
@@ -66,10 +73,12 @@ void loop() {
   int octaveShift = getOctaveShift();
   
   for (uint8_t i=0; i<12; i++) {
-    int shiftedNote = touchIndexToNote(i) + octaveShift; // Apply octave shift here
+    int baseNote = touchIndexToNote(i);
+    int shiftedNote = baseNote + octaveShift; // Apply octave shift here
 
     // it if *is* touched and *wasnt* touched before, alert!
     if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) ) {
+      activeNotes[i] = shiftedNote;
       noteSend(NOTE_ON, shiftedNote, VELOCITY);
       if (debug) {
         Serial.print("Note "); Serial.print(shiftedNote); Serial.print(" ON"); Serial.print(" (");Serial.print(NOTE_ON);Serial.print(")\n");
@@ -77,10 +86,11 @@ void loop() {
     }
     // if it *was* touched and now *isnt*, alert!
     if (!(currtouched & _BV(i)) && (lasttouched & _BV(i)) ) {
-      noteSend(NOTE_OFF, shiftedNote, VELOCITY);
+      noteSend(NOTE_OFF, activeNotes[i], VELOCITY);  // Use stored note
       if (debug) {
-        Serial.print("Note "); Serial.print(shiftedNote); Serial.print(" OFF"); Serial.print(" (");Serial.print(NOTE_OFF);Serial.print(")\n");
+        Serial.print("Note "); Serial.print(activeNotes[i]); Serial.print(" OFF"); Serial.print(" (");Serial.print(NOTE_OFF);Serial.print(")\n");
       }
+      activeNotes[i] = -1;  // Reset stored note
     }
   }
 
