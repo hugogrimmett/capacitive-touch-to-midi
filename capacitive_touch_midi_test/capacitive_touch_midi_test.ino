@@ -9,9 +9,6 @@ Hugo Grimmett
 #define _BV(bit) (1 << (bit)) 
 #endif
 
-
-
-
 // You can have up to 4 on one i2c bus but one is enough for testing!
 Adafruit_MPR121 cap = Adafruit_MPR121();
 
@@ -31,14 +28,14 @@ int activeNotes[12];  // Ensures correct note-off regardless of octave change
 bool lastTouchStateNote = false;
 
 // MIDI 
-int midiChannel = 2;  // Choose 1–16
-int NOTE_ON = 0x90 | ((midiChannel - 1) & 0x0F);
-int NOTE_OFF = 0x80 | ((midiChannel - 1) & 0x0F);
+int midiChannel = 2;   // 1-16 default, will be overridden by ADC3
+int NOTE_ON;
+int NOTE_OFF;
 int VELOCITY = 64; // 0-127, average is 64
 int octaveOffset = -2;
 
 // set to 1 for serial monitor output -- note that this disables MIDI output
-bool debug = 0;
+bool debug = 1;
 
 void setup() {
   if (debug) {
@@ -68,10 +65,27 @@ void setup() {
   for (int i = 0; i < 12; i++) {
     activeNotes[i] = -1;
   }
+
+  midiChannel = readMidiChannel();
+  NOTE_ON = 0x90 | ((midiChannel - 1) & 0x0F);
+  NOTE_OFF = 0x80 | ((midiChannel - 1) & 0x0F);
+
+  if (debug) {
+    Serial.print("Initial MIDI Channel: ");
+    Serial.println(midiChannel);
+  }
 }
 
 
 void loop() {
+  midiChannel = readMidiChannel();
+  NOTE_ON = 0x90 | ((midiChannel - 1) & 0x0F);
+  NOTE_OFF = 0x80 | ((midiChannel - 1) & 0x0F);
+
+  if (debug) {
+    Serial.print("Current MIDI Channel: ");
+    Serial.println(midiChannel);
+  }
   // Get the currently touched pads
   currtouched = cap.touched();
 
@@ -133,6 +147,16 @@ void loop() {
 
   // comment out this line for detailed data from the sensor!
   // return;
+}
+
+int readMidiChannel() {
+  int adcValue = analogRead(39);
+  int channel = 0;
+  if (adcValue > 200) channel |= 0b0001;       // 100k resistor, LSB
+  if (adcValue > 400) channel |= 0b0010;       // 47k resistor
+  if (adcValue > 700) channel |= 0b0100;       // 22k resistor
+  if (adcValue > 1500) channel |= 0b1000;      // 10k resistor, MSB
+  return channel + 1;
 }
 
 int touchIndexToNote(int touch_index) {
