@@ -9,6 +9,9 @@ Hugo Grimmett
 #define _BV(bit) (1 << (bit)) 
 #endif
 
+
+
+
 // You can have up to 4 on one i2c bus but one is enough for testing!
 Adafruit_MPR121 cap = Adafruit_MPR121();
 
@@ -27,10 +30,12 @@ int activeNotes[12];  // Ensures correct note-off regardless of octave change
 #define ESP32_TOUCH_THRESHOLD 20  // Adjust experimentally
 bool lastTouchStateNote = false;
 
-// MIDI channel is 1 (index 0, last digit of following commands)
-int NOTE_ON = 0x90;
-int NOTE_OFF = 0x80;
+// MIDI 
+int midiChannel = 2;  // Choose 1–16
+int NOTE_ON = 0x90 | ((midiChannel - 1) & 0x0F);
+int NOTE_OFF = 0x80 | ((midiChannel - 1) & 0x0F);
 int VELOCITY = 64; // 0-127, average is 64
+int octaveOffset = -2;
 
 // set to 1 for serial monitor output -- note that this disables MIDI output
 bool debug = 0;
@@ -154,9 +159,9 @@ int getOctaveShift() {
   bool upTouched = touchRead(OCTAVE_UP_PIN) < ESP32_TOUCH_THRESHOLD;
   bool downTouched = touchRead(OCTAVE_DOWN_PIN) < ESP32_TOUCH_THRESHOLD;
 
-  if (upTouched && !downTouched) return 12;
-  if (!upTouched && downTouched) return -12;
-  return 0;
+  if (upTouched && !downTouched) return 12 + octaveOffset * 12;
+  if (!upTouched && downTouched) return -12 + octaveOffset * 12;
+  return  octaveOffset * 12;
 }
 
 // plays a MIDI note. Doesn't check to see that cmd is greater than 127, or that
