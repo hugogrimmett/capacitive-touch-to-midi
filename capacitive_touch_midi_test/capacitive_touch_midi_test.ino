@@ -132,11 +132,10 @@ void loop() {
 
   if (debug) {  
     // --- DEBUG OUTPUT ---
-    Serial.print("NoteTouch: "); Serial.print(touchValue);
-    Serial.print("  OctaveUp: "); Serial.print(touchRead(OCTAVE_UP_PIN));
-    Serial.print("  OctaveDown: "); Serial.println(touchRead(OCTAVE_DOWN_PIN));
+    // Serial.print("NoteTouch: "); Serial.print(touchValue);
+    // Serial.print("  OctaveUp: "); Serial.print(touchRead(OCTAVE_UP_PIN));
+    // Serial.print("  OctaveDown: "); Serial.println(touchRead(OCTAVE_DOWN_PIN));
     int adcValue = analogRead(39);
-
     Serial.print("Current MIDI Channel: ");
     Serial.print(midiChannel);
     Serial.print(" , ADC value: ");
@@ -154,7 +153,7 @@ int readMidiChannel() {
   int adcValue = analogRead(39);
   if (adcValue < 100) return 1;        // 0000 - no switches
   else if (adcValue < 300) return 2;   // 0001 - 100k (LSB)
-  else if (adcValue < 60) return 3;   // 0010 - 47k
+  else if (adcValue < 600) return 3;   // 0010 - 47k
   else if (adcValue < 800) return 4;   // 0011 - 47k + 100k
   else if (adcValue < 1200) return 5;  // 0100 - 22k
   else if (adcValue < 1300) return 6;  // 0101 - 22k + 100k
