@@ -35,7 +35,7 @@ int VELOCITY = 64; // 0-127, average is 64
 int octaveOffset = -2;
 
 // set to 1 for serial monitor output -- note that this disables MIDI output
-bool debug = 1;
+bool debug = 0;
 
 void setup() {
   if (debug) {
@@ -81,11 +81,6 @@ void loop() {
   midiChannel = readMidiChannel();
   NOTE_ON = 0x90 | ((midiChannel - 1) & 0x0F);
   NOTE_OFF = 0x80 | ((midiChannel - 1) & 0x0F);
-
-  if (debug) {
-    Serial.print("Current MIDI Channel: ");
-    Serial.println(midiChannel);
-  }
   // Get the currently touched pads
   currtouched = cap.touched();
 
@@ -140,6 +135,12 @@ void loop() {
     Serial.print("NoteTouch: "); Serial.print(touchValue);
     Serial.print("  OctaveUp: "); Serial.print(touchRead(OCTAVE_UP_PIN));
     Serial.print("  OctaveDown: "); Serial.println(touchRead(OCTAVE_DOWN_PIN));
+    int adcValue = analogRead(39);
+
+    Serial.print("Current MIDI Channel: ");
+    Serial.print(midiChannel);
+    Serial.print(" , ADC value: ");
+    Serial.println(adcValue);
     delay(200);  // Slower loop for readability while debugging
   }
 
@@ -151,12 +152,22 @@ void loop() {
 
 int readMidiChannel() {
   int adcValue = analogRead(39);
-  int channel = 0;
-  if (adcValue > 200) channel |= 0b0001;       // 100k resistor, LSB
-  if (adcValue > 400) channel |= 0b0010;       // 47k resistor
-  if (adcValue > 700) channel |= 0b0100;       // 22k resistor
-  if (adcValue > 1500) channel |= 0b1000;      // 10k resistor, MSB
-  return channel + 1;
+  if (adcValue < 100) return 1;        // 0000 - no switches
+  else if (adcValue < 300) return 2;   // 0001 - 100k (LSB)
+  else if (adcValue < 60) return 3;   // 0010 - 47k
+  else if (adcValue < 800) return 4;   // 0011 - 47k + 100k
+  else if (adcValue < 1200) return 5;  // 0100 - 22k
+  else if (adcValue < 1300) return 6;  // 0101 - 22k + 100k
+  else if (adcValue < 1500) return 7;  // 0110 - 22k + 47k
+  else if (adcValue < 1700) return 8;  // 0111 - 22k + 47k + 100k
+  else if (adcValue < 1900) return 9;  // 1000 - 10k (MSB)
+  else if (adcValue < 2000) return 10; // 1001 - 10k + 100k
+  else if (adcValue < 2100) return 11; // 1010 - 10k + 47k
+  else if (adcValue < 2200) return 12; // 1011 - 10k + 47k + 100k
+  else if (adcValue < 2280) return 13; // 1100 - 10k + 22k
+  else if (adcValue < 2350) return 14; // 1101 - 10k + 22k + 100k
+  else if (adcValue < 2400) return 15; // 1110 - 10k + 22k + 47k
+  else return 16;                      // 1111 - all switches
 }
 
 int touchIndexToNote(int touch_index) {
